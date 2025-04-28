@@ -5,41 +5,74 @@ const Header = (props) => {
     </>
   );
 };
-const Content = (props) => {
+
+const ContentPart1 = (props) => {
   return (
     <>
       <p>
-        {props.part1} {props.exercises1}
-      </p>
-      <p>
-        {props.part2} {props.exercises2}
-      </p>
-      <p>
-        {props.part3} {props.exercises3}
+        {props.part1} {props.exercices1}
       </p>
     </>
   );
 };
+
+const ContentPart2 = (props) => {
+  return (
+    <>
+      <p>
+        {props.part2} {props.exercices2}
+      </p>
+    </>
+  );
+};
+
+const ContentPart3 = (props) => {
+  return (
+    <>
+      <p>
+        {props.part3} {props.exercices3}
+      </p>
+    </>
+  );
+};
+
+const table = [{ exercices1: 10 , exercices2: 7 , exercices3: 14 }];
+
+const Content = () => {
+  const part1 = "Fundamentals of React";
+  const part2 = "Using props to pass data";
+  const part3 = "State of a component";
+  return (
+    <>
+      <ContentPart1 part1={part1} exercices1={table[0].exercices1} />
+      <ContentPart2 part2={part2} exercices2={table[0].exercices2} />
+      <ContentPart3 part3={part3} exercices3={table[0].exercices3} />
+    </>
+  );
+};
+
 const Footer = (props) => {
   return (
     <>
-      <p>Number of exercises {props.exercises1 + props.exercises2 + props.exercises3}</p>
+      <p>
+        Number of exercises{" "}
+        {props.exercices1 + props.exercices2 + props.exercices3}
+      </p>
     </>
   );
 };
+
 const App = () => {
   const course = "Half Stack application development";
-  const part1 = "Fundamentals of React";
-  const exercises1 = 10;
-  const part2 = "Using props to pass data";
-  const exercises2 = 7;
-  const part3 = "State of a component";
-  const exercises3 = 14;
   return (
     <>
       <Header course={course} />
-      <Content part1={part1} part2={part2} part3={part3} exercises1={exercises1} exercises2={exercises2} exercises3={exercises3}/>
-      <Footer  exercises1={exercises1} exercises2={exercises2} exercises3={exercises3}/>
+      <Content />
+      <Footer
+        exercices1={table[0].exercices1}
+        exercices2={table[0].exercices2}
+        exercices3={table[0].exercices3}
+      />
     </>
   );
 };
