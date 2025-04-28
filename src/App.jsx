@@ -34,28 +34,30 @@ const Footer = (props) => {
 };
 
 const App = () => {
-  const course = "Half Stack application development";
-  const parts = [
-    { name: "Fundamentals of React", exercices: 10 },
-    { name: "Using props to pass data", exercices: 7 },
-    { name: "State of a component", exercices: 14 },
-  ];
+  const course = {
+    name: "Half Stack application development",
+    parts: [
+      { name: "Fundamentals of React", exercices: 10 },
+      { name: "Using props to pass data", exercices: 7 },
+      { name: "State of a component", exercices: 14 },
+    ],
+  };
 
   return (
     <>
-      <Header course={course} />
+      <Header course={course.name} />
       <Content
-        part1={parts[0].name}
-        part2={parts[1].name}
-        part3={parts[2].name}
-        exercices1={parts[0].exercices}
-        exercices2={parts[1].exercices}
-        exercices3={parts[2].exercices}
+        part1={course.parts[0].name}
+        part2={course.parts[1].name}
+        part3={course.parts[2].name}
+        exercices1={course.parts[0].exercices}
+        exercices2={course.parts[1].exercices}
+        exercices3={course.parts[2].exercices}
       />
       <Footer
-        exercices1={parts[0].exercices}
-        exercices2={parts[1].exercices}
-        exercices3={parts[2].exercices}
+        exercices1={course.parts[0].exercices}
+        exercices2={course.parts[1].exercices}
+        exercices3={course.parts[2].exercices}
       />
     </>
   );
